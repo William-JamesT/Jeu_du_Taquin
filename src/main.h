@@ -1,5 +1,5 @@
-#ifndef ACCUEIL_H
-#define ACCUEIL_H
+#ifndef MAIN_H
+#define MAIN_H
 
 
 
