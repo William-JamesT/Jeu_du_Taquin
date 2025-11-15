@@ -1,0 +1,4 @@
+2025-11-15 12:30:43.538 [info] update#ctor - updates are disabled as there is no update URL
+2025-11-15 12:30:45.029 [info] Starting extension host with pid 56109 (fork() took 15 ms).
+2025-11-15 12:30:57.538 [info] Extension host with pid 56109 exited with code: 0, signal: null.
+2025-11-15 12:30:57.554 [info] Waiting for extension host with pid 56109 to exit.
