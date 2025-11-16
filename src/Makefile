@@ -33,3 +33,8 @@ fclean: clean
 
 # Recompilation complète
 re: fclean all
+
+# Lancer le programme
+run: taquin
+	./taquin
+

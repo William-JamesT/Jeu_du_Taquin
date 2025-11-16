@@ -1,6 +1,7 @@
 #include<stdlib.h>
 #include<graph.h>
 #include<stdio.h> 
+#include"Bouton.h"
 int Choix_images()
 {
 	int x,y;
@@ -16,6 +17,7 @@ int Choix_images()
     ChargerImage("../img/Etooimage.png" ,100,200,0,0,200,125);
     ChargerImage("../img/OTimage.png" ,750 ,200,0,0,200,133);
     ChargerImage("../img/bouton_quitter.png" ,450 ,375,0,0,150,89);
-	while(Touche()!= XK_space);
+	/*while(Touche()!= XK_space); jsp a quoi ca sert*/
+    Bouton1P_or_Q();
 	FermerGraphique();
 }
