@@ -21,6 +21,6 @@ int main()
     ChargerImage("../img/bouton_quitter.png" ,450 ,375,0,0,150,89);
     Bouton1P_or_Q();
 	/*while(Touche()!= XK_space) jsp a quoi ca sert*/
-	FermerGraphique();
-	return EXIT_SUCCESS;
+  
+
 }
