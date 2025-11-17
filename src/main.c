@@ -2,6 +2,8 @@
 #include<graph.h>
 #include<stdio.h> 
 #include"Bouton.h"
+#include"Choix_image.h"
+#include"bouton_Choix_image.h"
 int main()
 {
 	int x,y;
@@ -11,7 +13,6 @@ int main()
     CreerFenetre(50,50,1000,550);
     c = CouleurParNom("red");
     ChoisirCouleurDessin(c);
-    
     ChargerImageFond("../img/fondbleu.png");
     EcrireTexte(430,50,"Bienvenue sur le jeu du Taquin !",2);
     /*Je remplis des triangle a l'endroit de mes boutons pour detecter si je clique dessus*/
@@ -20,7 +21,10 @@ int main()
     RemplirRectangle(450,375,150,89);
     ChargerImage("../img/bouton_quitter.png" ,450 ,375,0,0,150,89);
     Bouton1P_or_Q();
-	/*while(Touche()!= XK_space) jsp a quoi ca sert*/
-  
-
+    Choix_images();
+    /*si il quitte pas est choisis une des images on appelle la fonction*/
+    bouton_choix_image();
+	while(Touche()!= XK_space);
+	FermerGraphique();
+	return EXIT_SUCCESS;
 }

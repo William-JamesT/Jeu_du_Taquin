@@ -18,9 +18,8 @@ void Bouton1P_or_Q()
         /*si elle corespond au bouton Play je prend l'ecran 1 et je met le choix des Images */
         if( _xclic >= x_rectangle1 && _xclic<= x_rectangle1 + largeur_r1 
             && _yclic >= y_rectangle1 && _yclic<= y_rectangle1 + Hauteur_r1){
-                /*CopierZone(0,0,1000,550,0,0,500,500);j'ai pas encore compris comment l'utiliser*/
-                /*ChoisirEcran(1);*/
                 Choix_images();
+                return;
             }
             
             /*si clic = coordonnées boutons quitte*/
