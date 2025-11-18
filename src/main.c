@@ -22,9 +22,11 @@ int main()
     ChargerImage("../img/bouton_quitter.png" ,450 ,375,0,0,150,89);
     Bouton1P_or_Q();
     Choix_images();
-    /*si il quitte pas est choisis une des images on appelle la fonction*/
+    /*si il quitte pas et choisis une des images on appelle la fonction*/
     bouton_choix_image();
-	while(Touche()!= XK_space);
-	FermerGraphique();
+
+
+	
+	
 	return EXIT_SUCCESS;
 }

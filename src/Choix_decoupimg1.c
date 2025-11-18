@@ -8,7 +8,7 @@ void Choix_decoupimg1()
     couleur c;
     ChoisirEcran(2);
     /*pas besoin de refaire une fenetre*/
-    c = CouleurParNom("black");
+    c = CouleurParNom("blue");
     ChoisirCouleurDessin(c);
     ChargerImageFond("../img/fondbleu.png");
     EcrireTexte(300,50,"Chosis le decoupage avec lequel tu souhaitera jouer.",2);
