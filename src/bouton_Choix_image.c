@@ -5,10 +5,14 @@
 #include"Choix_decoupimg1.h"
 #include"Choix_decoupimg2.h"
 #include"Choix_decoupimg3.h"
+#include"decoupage.h"
 void bouton_choix_image()
 {
 	int x_rectangle1 =20,y_rectangle1=150,x_rectangle2=370,y_rectangle2=200,x_rectangle3=620,y_rectangle3=100,x_rectangle4=450,y_rectangle4=375;
     int largeur_r1=300,largeur_r2=200,Hauteur_r1=188,Hauteur_r2=125,largeur_r3=350,Hauteur_r3=233,largeur_r4=150,Hauteur_r4=89;
+    int l, c;
+    int coordonee[8][8];
+    int joueur[8][8];
     int _xclic,_yclic;
     /*on verifie les coordonnées de la souris quand elle clique*/
     while(1){
@@ -24,7 +28,9 @@ void bouton_choix_image()
                 /*CopierZone(0,0,1000,550,0,0,500,500);j'ai pas encore compris comment l'utiliser*/
                 /*ChoisirEcran(1);*/
                 /*si il a choisi l'image avec samuel etoo*/
-                Choix_decoupimg1();
+                Choix_decoupimg1(&l, &c);
+                tab1(l, c, coordonee, joueur);
+
                 return;
             }
             
