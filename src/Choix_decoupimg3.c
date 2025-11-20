@@ -8,11 +8,13 @@ void Choix_decoupimg3()
     couleur c;
     ChoisirEcran(2);
     /*pas besoin de refaire une fenetre*/
-    c = CouleurParNom("blue");
+    c = CouleurParNom("red");
     ChoisirCouleurDessin(c);
     ChargerImageFond("../img/fondbleu.png");
-    EcrireTexte(300,50,"Chosis le decoupage avec lequel tu souhaitera jouer.",2);
+    EcrireTexte(400,50,"Chosis le decoupage avec lequel tu souhaitera jouer.",2);
     ChargerImage("../img/OTimage2.png" ,10,10,0,0,350,233);
+    c = CouleurParNom("black");
+    ChoisirCouleurDessin(c);
      /*bouton des lignes */
     RemplirRectangle(100,300,50,50);
     RemplirRectangle(200,300,50,50);

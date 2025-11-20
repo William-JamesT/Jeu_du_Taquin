@@ -24,9 +24,7 @@ int main()
     Choix_images();
     /*si il quitte pas et choisis une des images on appelle la fonction*/
     bouton_choix_image();
-
-
-	
-	
+    while(Touche()!= XK_space);
+	FermerGraphique();
 	return EXIT_SUCCESS;
 }
