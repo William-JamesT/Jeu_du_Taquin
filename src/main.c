@@ -3,6 +3,7 @@
 #include<stdio.h> 
 #include"Bouton.h"
 #include"Choix_image.h"
+#include"decoupage.h"
 #include"bouton_Choix_image.h"
 int main()
 {
@@ -24,7 +25,9 @@ int main()
     Choix_images();
     /*si il quitte pas et choisis une des images on appelle la fonction*/
     bouton_choix_image();
-    while(Touche()!= XK_space);
-	FermerGraphique();
+    Bouton1P_or_Q();
+
+	
+	
 	return EXIT_SUCCESS;
 }
