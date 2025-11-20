@@ -8,9 +8,7 @@
 #include "Choix_image.h"
 #include "bouton_Choix_image.h"
 
-void tab1(int l, int c, int coordonee[8][8], int joueur[8][8]) {
-    int l_image = 260;
-    int h_image = 181;
+void tab1(int l, int c, int coordonee[8][8], int joueur[8][8], int l_image, int h_image, const char *nomImage) {
     int l_tuile = l_image / c;
     int h_tuile = h_image / l;
     int marge = 5;
@@ -47,7 +45,7 @@ void tab1(int l, int c, int coordonee[8][8], int joueur[8][8]) {
                                                x_src, y_src,
                                                l_tuile, h_tuile);
             } else {
-                coordonee[i][j] = ChargerImage("../img/BPimage.png",
+                coordonee[i][j] = ChargerImage(nomImage,
                                                x_aff, y_aff,
                                                x_src, y_src,
                                                l_tuile, h_tuile);
@@ -77,7 +75,7 @@ void tab1(int l, int c, int coordonee[8][8], int joueur[8][8]) {
                                             x_src, y_src,
                                             l_tuile, h_tuile);
             } else {
-                joueur[i][j] = ChargerImage("../img/BPimage.png",
+                joueur[i][j] = ChargerImage(nomImage,
                                             x_aff, y_aff,
                                             x_src, y_src,
                                             l_tuile, h_tuile);
