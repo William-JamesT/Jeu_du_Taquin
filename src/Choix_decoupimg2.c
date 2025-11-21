@@ -89,4 +89,5 @@ void Choix_decoupimg2(int *l, int *c)
         else if (x >= 500 && x <= 550) *c = 7;
         else if (x >= 600 && x <= 650) *c = 8;
     }
+    return;
 }

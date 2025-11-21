@@ -31,5 +31,6 @@ void Bouton1P_or_Q()
         while (SourisCliquee());
 
     }
+    return;
 
 }

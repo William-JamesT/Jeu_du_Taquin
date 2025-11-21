@@ -39,7 +39,7 @@ void bouton_choix_image()
                 && _yclic >= y_rectangle2 && _yclic<= y_rectangle2 + Hauteur_r2){
                     /*si il a choisi l'image avec Black Panther*/
                     Choix_decoupimg2(&l, &c);
-                    tab1(l, c, coordonee, joueur, 350, 133, "../img/Etooimage.png");
+                    tab1(l, c, coordonee, joueur, 200, 125, "../img/Etooimage.png");
                     return;
             }
             /*redirige vers choix de decoup img3*/
@@ -47,7 +47,7 @@ void bouton_choix_image()
                 && _yclic >= y_rectangle3 && _yclic<= y_rectangle3 + Hauteur_r3){
                     /*si il a choisi l'image avec olive&Tom*/
                     Choix_decoupimg3(&l, &c);
-                    tab1(l, c, coordonee, joueur, 150, 89, "../img/OTimage.png");
+                    tab1(l, c, coordonee, joueur, 200, 135, "../img/OTimage.png");
                     return;
             }
             /*si elle corespond au bouton quitter je ferme le graphique */
@@ -62,5 +62,6 @@ void bouton_choix_image()
         while (SourisCliquee());
 
     }
+    return;
 
 }

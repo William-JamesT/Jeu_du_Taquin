@@ -12,7 +12,7 @@ void tab1(int l, int c, int coordonee[8][8], int joueur[8][8], int l_image, int 
     int l_tuile = l_image / c;
     int h_tuile = h_image / l;
     int marge = 5;
-    couleur a, b, w;
+    couleur w;
 
     int i, j;
     int x_aff;
@@ -26,7 +26,7 @@ void tab1(int l, int c, int coordonee[8][8], int joueur[8][8], int l_image, int 
     int h_btn = 60;
 
     ChoisirEcran(4);
-
+    ChargerImageFond("../img/fondbleu.png");
     w = CouleurParNom("white");
     ChoisirCouleurDessin(w);
     EcrireTexte(50, 20, "ce que tu dois reproduire", 2);
@@ -53,9 +53,7 @@ void tab1(int l, int c, int coordonee[8][8], int joueur[8][8], int l_image, int 
         }
     }
 
-    CopierZone(4, 0, 0, 0, 900, 700, 0, 0);
-
-    ChoisirEcran(4);
+   
 
     w = CouleurParNom("white");
     ChoisirCouleurDessin(w);
@@ -83,10 +81,7 @@ void tab1(int l, int c, int coordonee[8][8], int joueur[8][8], int l_image, int 
         }
     }
 
-    CopierZone(4, 0, 0, 0, 900, 700, 0, 0);
-
-    ChoisirEcran(1);
-    CopierZone(0, 4, 0, 0, 900, 700, 0, 0);
+    
 
     w = CouleurParNom("white");
     ChoisirCouleurDessin(w);
@@ -94,16 +89,15 @@ void tab1(int l, int c, int coordonee[8][8], int joueur[8][8], int l_image, int 
 
     CopierZone(4, 0, 0, 0, 900, 700, 0, 0);
 
-    ChoisirEcran(4);
-
 
 
     ChoisirCouleurDessin(CouleurParNom("white"));
-    DessinerRectangle(x_btn, y_btn, w_btn, h_btn);
+    RemplirRectangle(x_btn, y_btn, w_btn, h_btn);
 
     ChoisirCouleurDessin(CouleurParNom("black"));
     EcrireTexte(x_btn + 25, y_btn + 35, "MELANGE", 2);
 
 
     CopierZone(4, 0, 0, 0, 900, 700, 0, 0);
+    return;
 }
