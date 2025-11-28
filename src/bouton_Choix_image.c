@@ -5,14 +5,10 @@
 #include"Choix_decoupimg1.h"
 #include"Choix_decoupimg2.h"
 #include"Choix_decoupimg3.h"
-#include"decoupage.h"
 void bouton_choix_image()
 {
 	int x_rectangle1 =20,y_rectangle1=150,x_rectangle2=370,y_rectangle2=200,x_rectangle3=620,y_rectangle3=100,x_rectangle4=450,y_rectangle4=375;
     int largeur_r1=300,largeur_r2=200,Hauteur_r1=188,Hauteur_r2=125,largeur_r3=350,Hauteur_r3=233,largeur_r4=150,Hauteur_r4=89;
-    int l, c;
-    int coordonee[8][8];
-    int joueur[8][8];
     int _xclic,_yclic;
     /*on verifie les coordonnées de la souris quand elle clique*/
     while(1){
@@ -28,9 +24,7 @@ void bouton_choix_image()
                 /*CopierZone(0,0,1000,550,0,0,500,500);j'ai pas encore compris comment l'utiliser*/
                 /*ChoisirEcran(1);*/
                 /*si il a choisi l'image avec samuel etoo*/
-                Choix_decoupimg1(&l, &c);
-                tab1(l, c, coordonee, joueur, 200, 125, "../img/BPimage.png");
-
+                Choix_decoupimg1();
                 return;
             }
             
@@ -38,16 +32,14 @@ void bouton_choix_image()
             else if(_xclic >= x_rectangle2 && _xclic<=x_rectangle2 + largeur_r2 
                 && _yclic >= y_rectangle2 && _yclic<= y_rectangle2 + Hauteur_r2){
                     /*si il a choisi l'image avec Black Panther*/
-                    Choix_decoupimg2(&l, &c);
-                    tab1(l, c, coordonee, joueur, 200, 125, "../img/Etooimage.png");
+                    Choix_decoupimg2();
                     return;
             }
             /*redirige vers choix de decoup img3*/
             else if(_xclic >= x_rectangle3 && _xclic<=x_rectangle3 + largeur_r3 
                 && _yclic >= y_rectangle3 && _yclic<= y_rectangle3 + Hauteur_r3){
                     /*si il a choisi l'image avec olive&Tom*/
-                    Choix_decoupimg3(&l, &c);
-                    tab1(l, c, coordonee, joueur, 200, 135, "../img/OTimage.png");
+                    Choix_decoupimg3();
                     return;
             }
             /*si elle corespond au bouton quitter je ferme le graphique */
@@ -62,6 +54,5 @@ void bouton_choix_image()
         while (SourisCliquee());
 
     }
-    return;
 
 }
