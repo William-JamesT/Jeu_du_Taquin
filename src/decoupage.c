@@ -14,7 +14,7 @@ void decoupage(int l, int c, char *image)
     int num = 0;
     int src_x, src_y, dst_x, dst_y;
     
-    /* -------------------- Dimensions selon l'image -------------------- */
+    /* Dimensions selon l'image  grace la fonction strcmp va regarder ce quelle fait c'est grace a ça que le decoupage il s'adapte*/
     if (strcmp(image, "../img/BPimage2.png") == 0) {
         img_L = 300;
         img_H = 188;
@@ -40,7 +40,7 @@ void decoupage(int l, int c, char *image)
     EffacerEcran(CouleurParNom("white"));
     ChargerImage(image, 0, 0, 0, 0, img_L, img_H);
 
-    /* -------------------- Affichage du modèle non mélangé en haut à gauche -------------------- */
+    /* Affichage du modèle non mélangé en haut à gauche  */
     ChoisirEcran(0);
     ChargerImageFond("../img/fondbleu.png");
     for (i = 0; i < l; i++) {
@@ -54,7 +54,7 @@ void decoupage(int l, int c, char *image)
         }
     }
 
-    /* -------------------- Affichage du puzzle joueur au centre -------------------- */
+    /*  Affichage du puzzle joueur au centre */
     for (i = 0; i < l; i++) {
         for (j = 0; j < c; j++) {
             num = joueur[i][j];
@@ -66,7 +66,7 @@ void decoupage(int l, int c, char *image)
         }
     }
 
-    /* -------------------- Bouton Mélanger -------------------- */
+    /*Bouton Mélanger*/
     RemplirRectangle(450, 500, 150, 89);
     ChoisirCouleurDessin(CouleurParNom("white"));
     EcrireTexte(480, 525, "Melanger", 2);
@@ -75,7 +75,7 @@ void decoupage(int l, int c, char *image)
     ChoisirCouleurDessin(CouleurParNom("black"));
     EcrireTexte(300, 550, "Puzzle prêt ! Mélange non encore fait.", 2);
 
-    /* -------------------- Attente clic sur Mélanger -------------------- */
+    /*Attente clic sur Mélanger*/
     while (!SourisCliquee());
     SourisPosition();
 
