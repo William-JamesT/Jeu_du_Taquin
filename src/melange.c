@@ -68,8 +68,19 @@ void melange(int l, int c, int joueur[8][8], int l_tuile, int h_tuile)
             numTile = joueur[i][j];
             dst_x = centre_x + j*(l_tuile+2);
             dst_y = centre_y + i*(h_tuile+2);
-            CopierZone(3, 0, (numTile%c)*l_tuile, (numTile/c)*h_tuile,
-                       l_tuile, h_tuile, dst_x, dst_y);
+
+            /*si ça correspond a la tuile[0][0] qui a comme valeur -1 on copie la tuiles
+            blanche qu'on avait dessiné */
+
+            if(numTile == -1){
+                CopierZone(3,0,500,0,l_tuile,h_tuile,dst_x,dst_y);
+                
+            /*sinon pour le reste on prend celle de l'image*/
+
+            }else{
+                CopierZone(3, 0, (numTile%c)*l_tuile, (numTile/c)*h_tuile,
+                l_tuile, h_tuile, dst_x, dst_y);
+            }
         }
     }
 
