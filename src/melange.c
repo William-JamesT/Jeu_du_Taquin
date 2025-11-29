@@ -1,4 +1,5 @@
 #include <stdlib.h>
+#include <stdio.h>
 #include <graph.h>
 #include <time.h>
 
@@ -13,6 +14,8 @@ void melange(int l, int c, int joueur[8][8], int l_tuile, int h_tuile)
     int numTile;
     int centre_x;
     int centre_y;
+    /* Alors je pense que il est pas correctement fait parceque y'a des moment
+    je pouvais pas résoudre le puzzle(en 3x3 bien sur) A verifier de ton coté*/
 
     /* Initialiser le tableau modèle non mélangé */
     num = 0;

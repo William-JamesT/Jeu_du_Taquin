@@ -3,6 +3,7 @@
 #include <stdio.h>
 #include <string.h>  /* pour strcmp */
 #include "melange.h"
+#include "deplacement.h"
 
 void decoupage(int l, int c, char *image)
 {
@@ -104,4 +105,5 @@ void decoupage(int l, int c, char *image)
     if (_X >= 450 && _X <= 600 && _Y >= 450 && _Y <= 589) {
         melange(l, c, joueur, l_tuile, h_tuile);
     }
+    deplacement(l, c, joueur, l_tuile, h_tuile);
 }
