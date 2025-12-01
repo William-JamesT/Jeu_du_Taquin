@@ -1,62 +1,60 @@
-#include <stdlib.h>
 #include <graph.h>
 #include <stdio.h>
+#include "bouton_Choix_image.h"  
 
-
-void Ecran_Gagne()
+void ecran_fin()
 {
-    int _xclic, _yclic;
+    int x, y;
 
-    // === Création de l’écran victoire ===
-    ChoisirEcran(1);
-    ChargerImageFond("../img/fond_victoire.png"); // mets l’image que tu veux
+    int btn_rejouer_x = 350, btn_rejouer_y = 250;
+    int btn_rejouer_w = 300, btn_rejouer_h = 80;
 
-    couleur c = CouleurParNom("white");
-    ChoisirCouleurDessin(c);
+    int btn_quitter_x = 350, btn_quitter_y = 360;
+    int btn_quitter_w = 300, btn_quitter_h = 80;
 
-    EcrireTexte(250, 80, "Bravo, vous avez gagné !", 2);
+    /* --- Affichage de l’écran de fin --- */
+    ChoisirEcran(0);
+    ChargerImageFond("../img/fondbleu.png");
 
-    // === Boutons ===
-    // Bouton REJOUER
-    int x_rejouer = 250, y_rejouer = 200;
-    int w_rejouer = 300, h_rejouer = 100;
-    RemplirRectangle(x_rejouer, y_rejouer, w_rejouer, h_rejouer);
-    ChargerImage("../img/bouton_rejouer.png", x_rejouer, y_rejouer, 0, 0, w_rejouer, h_rejouer);
+    ChoisirCouleurDessin(CouleurParNom("white"));
+    EcrireTexte(300, 150, "Bravo, tu as résolu le puzzle !", 2);
 
-    // Bouton ACCUEIL
-    int x_accueil = 250, y_accueil = 350;
-    int w_accueil = 300, h_accueil = 100;
-    RemplirRectangle(x_accueil, y_accueil, w_accueil, h_accueil);
-    ChargerImage("../img/bouton_accueil.png", x_accueil, y_accueil, 0, 0, w_accueil, h_accueil);
+    /* Bouton Rejouer */
+    ChoisirCouleurDessin(CouleurParNom("green"));
+    RemplirRectangle(btn_rejouer_x, btn_rejouer_y, btn_rejouer_w, btn_rejouer_h);
+    ChoisirCouleurDessin(CouleurParNom("white"));
+    EcrireTexte(btn_rejouer_x + 90, btn_rejouer_y + 50, "Rejouer", 2);
 
-    // Copier sur l’écran principal
-    CopierZone(1, 0, 0, 0, 1000, 600, 0, 0);
+    /* Bouton Quitter */
+    ChoisirCouleurDessin(CouleurParNom("red"));
+    RemplirRectangle(btn_quitter_x, btn_quitter_y, btn_quitter_w, btn_quitter_h);
+    ChoisirCouleurDessin(CouleurParNom("white"));
+    EcrireTexte(btn_quitter_x + 90, btn_quitter_y + 50, "Quitter", 2);
 
-    // === Boucle clic ===
-    while (1) {
-
-        while (!SourisCliquee());
-
-        SourisPosition();
-        _xclic = _X;
-        _yclic = _Y;
-
-        // --- Clique sur REJOUER ---
-        if (_xclic >= x_rejouer && _xclic <= x_rejouer + w_rejouer &&
-            _yclic >= y_rejouer && _yclic <= y_rejouer + h_rejouer)
+    /* --- Gestion du clic --- */
+    while (1)
+    {
+        if (SourisCliquee())
         {
-            lancerPartie();
-            return;
-        }
+            SourisPosition();
+            x = _X;
+            y = _Y;
 
-        // --- Clique sur ACCUEIL ---
-        if (_xclic >= x_accueil && _xclic <= x_accueil + w_accueil &&
-            _yclic >= y_accueil && _yclic <= y_accueil + h_accueil)
-        {
-            afficherAccueil();
-            return;
-        }
+            /* Clic sur REJOUER */
+            if (x >= btn_rejouer_x && x <= btn_rejouer_x + btn_rejouer_w &&
+                y >= btn_rejouer_y && y <= btn_rejouer_y + btn_rejouer_h)
+            {
+                bouton_choix_image();     /* retour à la première page*/
+                return;
+            }
 
-        while (SourisCliquee());
+            /* Clic sur QUITTER */
+            if (x >= btn_quitter_x && x <= btn_quitter_x + btn_quitter_w &&
+                y >= btn_quitter_y && y <= btn_quitter_y + btn_quitter_h)
+            {
+                FermerGraphique();
+                exit(0);
+            }
+        }
     }
 }

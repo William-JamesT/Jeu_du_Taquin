@@ -2,6 +2,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "deplacement.h"
+#include "ecranGagner.h"
+#include "puzzleResolu.h"
+
 
 /* Déplacement du puzzle après mélange */
 void deplacement(int l, int c, int joueur[8][8], int l_tuile, int h_tuile)
@@ -90,6 +93,12 @@ void deplacement(int l, int c, int joueur[8][8], int l_tuile, int h_tuile)
                     joueur[i][j] = -1;
                 }
             }
+        }
+        /* --- Vérifier si le puzzle est résolu --- */
+        if (puzzle_resolu(l, c, joueur))
+        {
+            ecran_fin();
+            return;   /*quitter la fonction de déplacement*/
         }
 
         /*Réaffichage complet */
