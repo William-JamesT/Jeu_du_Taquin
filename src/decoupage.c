@@ -94,7 +94,7 @@ void decoupage(int l, int c, char *image)
     ChoisirCouleurDessin(CouleurParNom("black"));
     RemplirRectangle(450, 450, 150, 89);
     ChoisirCouleurDessin(CouleurParNom("white"));
-    EcrireTexte(485, 515, "Melanger", 2);
+    EcrireTexte(460, 515, "Melanger", 2);
 
     
 

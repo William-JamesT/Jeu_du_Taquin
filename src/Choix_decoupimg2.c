@@ -38,7 +38,7 @@ void Choix_decoupimg2(char *image)
 
     /* ---------- BOUTONS COLONNES ---------- */
     ChoisirCouleurDessin(CouleurParNom("black"));
-    EcrireTexte(100, 270, "Colonnes :", 2);
+    EcrireTexte(60, 270, "Colonnes :", 2);
 
     RemplirRectangle(200,250,50,50);
     RemplirRectangle(260,250,50,50);
@@ -62,7 +62,7 @@ void Choix_decoupimg2(char *image)
     ChoisirCouleurDessin(CouleurParNom("black"));
     RemplirRectangle(350, 380, 150, 70);
     ChoisirCouleurDessin(CouleurParNom("white"));
-    EcrireTexte(385, 425, "VALIDER", 2);
+    EcrireTexte(360, 425, "VALIDER", 2);
 
     CopierZone(2,0,0,0,1000,550,0,0);
 

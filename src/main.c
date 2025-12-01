@@ -15,7 +15,7 @@ int main()
     c = CouleurParNom("red");
     ChoisirCouleurDessin(c);
     ChargerImageFond("../img/fondbleu.png");
-    EcrireTexte(430,50,"Bienvenue sur le jeu du Taquin !",2);
+    EcrireTexte(200,50,"Bienvenue sur le jeu du Taquin !",2);
     /*Je remplis des triangle a l'endroit de mes boutons pour detecter si je clique dessus*/
     RemplirRectangle(450,280,150,89);
     ChargerImage("../img/bouton_jouer.png" ,450 ,280,0,0,150,89);
