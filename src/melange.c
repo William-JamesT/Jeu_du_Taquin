@@ -15,6 +15,7 @@ void melange(int l, int c, int joueur[8][8], int l_tuile, int h_tuile)
     int centre_x;
     int centre_y;
     /* c'est bon j'ai reussi 3x3 2fois d'affilé*/
+    /*ooooooooooooooooooooooooooooo*/
 
     /* Initialiser le tableau modèle non mélangé */
     num = 0;
