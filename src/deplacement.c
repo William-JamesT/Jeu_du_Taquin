@@ -15,6 +15,7 @@ void deplacement(int l, int c, int joueur[8][8], int l_tuile, int h_tuile)
     int x, y;
     int numTile;
     int trouve;
+    int ref;
 
     /* Centrage du puzzle */
     centre_x = 600 - (c * (l_tuile + 2)) / 2;
@@ -101,7 +102,7 @@ void deplacement(int l, int c, int joueur[8][8], int l_tuile, int h_tuile)
         {
             for (n = 0; n < c; n++)
             {
-                int ref = m * c + n;
+                ref = m * c + n;
                 CopierZone(3, 0,(ref % c) * l_tuile,(ref / c) * h_tuile,l_tuile, h_tuile,
                            20 + n * (l_tuile + 2),
                            20 + m * (h_tuile + 2));

@@ -7,15 +7,14 @@ void melange(int l, int c, int joueur[8][8], int l_tuile, int h_tuile)
 {
     int i, j, k;
     int tmp;
-    int rand_i, rand_j;
+    int imgB_i, imgB_j;
     int dst_x, dst_y;
     int modele[8][8];
     int num;
     int numTile;
     int centre_x;
     int centre_y;
-    /* Alors je pense que il est pas correctement fait parceque y'a des moment
-    je pouvais pas résoudre le puzzle(en 3x3 bien sur) A verifier de ton coté*/
+    /* c'est bon j'ai reussi 3x3 2fois d'affilé*/
 
     /* Initialiser le tableau modèle non mélangé */
     num = 0;
@@ -31,17 +30,55 @@ void melange(int l, int c, int joueur[8][8], int l_tuile, int h_tuile)
     srand((unsigned int)time(NULL));
 
     /* Mélange aléatoire des tuiles dans joueur */
-    for(k=0;k<l*c*10;k++)
-    {
-        i = rand() % l;
-        j = rand() % c;
-        rand_i = rand() % l;
-        rand_j = rand() % c;
 
-        tmp = joueur[i][j];
-        joueur[i][j] = joueur[rand_i][rand_j];
-        joueur[rand_i][rand_j] = tmp;
+/* Trouver la position initiale de la tuile blanche (-1) */
+for (i = 0; i < l; i++)
+{
+    for (j = 0; j < c; j++)
+    {
+        if (joueur[i][j] == -1)
+        {
+            imgB_i = i;   /* réutilisation de imgB_i pour stocker bl_i */
+            imgB_j = j;   /* réutilisation de imgB_j pour stocker bl_j */
+        }
     }
+}
+
+/* Effectuer des mouvements aléatoires en jouant des coup */
+for (k = 0; k < l * c * 20; k++)
+{
+    tmp = rand() % 4; /* tmp = direction (0=haut,1=bas,2=gauche,3=droite) */
+
+    /* HAUT */
+    if (tmp == 0 && imgB_i < l - 1)
+    {
+        joueur[imgB_i][imgB_j] = joueur[imgB_i + 1][imgB_j];
+        joueur[imgB_i + 1][imgB_j] = -1;
+        imgB_i++;
+    }
+    /* BAS */
+    else if (tmp == 1 && imgB_i > 0)
+    {
+        joueur[imgB_i][imgB_j] = joueur[imgB_i - 1][imgB_j];
+        joueur[imgB_i - 1][imgB_j] = -1;
+        imgB_i--;
+    }
+    /* GAUCHE */
+    else if (tmp == 2 && imgB_j < c - 1)
+    {
+        joueur[imgB_i][imgB_j] = joueur[imgB_i][imgB_j + 1];
+        joueur[imgB_i][imgB_j + 1] = -1;
+        imgB_j++;
+    }
+    /* DROITE */
+    else if (tmp == 3 && imgB_j > 0)
+    {
+        joueur[imgB_i][imgB_j] = joueur[imgB_i][imgB_j - 1];
+        joueur[imgB_i][imgB_j - 1] = -1;
+        imgB_j--;
+    }
+}
+
 
     /* Réaffichage sur l'écran 0 */
     ChoisirEcran(0);

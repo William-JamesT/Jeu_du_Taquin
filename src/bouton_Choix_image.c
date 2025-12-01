@@ -24,7 +24,7 @@ void bouton_choix_image()
                 /*CopierZone(0,0,1000,550,0,0,500,500);j'ai pas encore compris comment l'utiliser*/
                 /*ChoisirEcran(1);*/
                 /*si il a choisi l'image avec samuel etoo*/
-                Choix_decoupimg1();
+                Choix_decoupimg1("../img/BPimage2.png");
                 return;
             }
             
@@ -32,14 +32,14 @@ void bouton_choix_image()
             else if(_xclic >= x_rectangle2 && _xclic<=x_rectangle2 + largeur_r2 
                 && _yclic >= y_rectangle2 && _yclic<= y_rectangle2 + Hauteur_r2){
                     /*si il a choisi l'image avec Black Panther*/
-                    Choix_decoupimg2();
+                    Choix_decoupimg2("../img/Etooimage.png");
                     return;
             }
             /*redirige vers choix de decoup img3*/
             else if(_xclic >= x_rectangle3 && _xclic<=x_rectangle3 + largeur_r3 
                 && _yclic >= y_rectangle3 && _yclic<= y_rectangle3 + Hauteur_r3){
                     /*si il a choisi l'image avec olive&Tom*/
-                    Choix_decoupimg3();
+                    Choix_decoupimg3("../img/OTimage2.png");
                     return;
             }
             /*si elle corespond au bouton quitter je ferme le graphique */
