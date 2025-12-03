@@ -99,11 +99,21 @@ void decoupage(int l, int c, char *image)
     
 
     /*Attente clic sur Mélanger*/
-    while (!SourisCliquee());
-    SourisPosition();
-
-    if (_X >= 450 && _X <= 600 && _Y >= 450 && _Y <= 589) {
-        melange(l, c, joueur, l_tuile, h_tuile);
+    while (1) {
+        while (!SourisCliquee());
+        SourisPosition();
+        
+        /* Vérifier si le clic est sur le bouton Mélanger */
+        if (_X >= 450 && _X <= 600 && _Y >= 450 && _Y <= 589) {
+            /* Attendre que le clic soit relâché */
+            while (SourisCliquee());
+            /* Mélanger le puzzle */
+            melange(l, c, joueur, l_tuile, h_tuile);
+            /* Lancer le jeu */
+            deplacement(l, c, joueur, l_tuile, h_tuile);
+            return;
+        }
+        /* Si le clic n'est pas sur le bouton, attendre qu'il soit relâché et continuer la boucle */
+        while (SourisCliquee());
     }
-    deplacement(l, c, joueur, l_tuile, h_tuile);
 }

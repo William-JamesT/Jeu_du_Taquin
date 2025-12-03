@@ -1,6 +1,7 @@
 #include <graph.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <unistd.h>
 #include "deplacement.h"
 #include "ecranGagner.h"
 #include "puzzleResolu.h"
@@ -28,6 +29,46 @@ void deplacement(int l, int c, int joueur[8][8], int l_tuile, int h_tuile)
     /* Centrage du puzzle */
     centre_x = 600 - (c * (l_tuile + 2)) / 2;
     centre_y = 300 - (l * (h_tuile + 2)) / 2;
+
+    /* Réaffichage initial */
+    ChoisirEcran(0);
+    ChargerImageFond("../img/fondbleu.png");
+
+    /* Réaffichage du modèle en haut a gauche */
+    for (m = 0; m < l; m++)
+    {
+        for (n = 0; n < c; n++)
+        {
+            ref = m * c + n;
+            CopierZone(3, 0,(ref % c) * l_tuile,(ref / c) * h_tuile,l_tuile, h_tuile,
+                       20 + n * (l_tuile + 2),
+                       20 + m * (h_tuile + 2));
+        }
+    }
+
+    /* Réaffichage initial du puzzle joué */
+    for (m = 0; m < l; m++)
+    {
+        for (n = 0; n < c; n++)
+        {
+            numTile = joueur[m][n];
+            x = centre_x + n * (l_tuile + 2);
+            y = centre_y + m * (h_tuile + 2);
+
+            if (numTile == -1)
+            {
+                /* tuile blanche */
+                CopierZone(3, 0, 500, 0, l_tuile, h_tuile, x, y);
+            }
+            else
+            {
+                CopierZone(3, 0,(numTile % c) * l_tuile,(numTile / c) * h_tuile,
+                l_tuile, h_tuile,x, y);
+            }
+        }
+    }
+    EcrireTexte(450, 100, "A toi de jouer !", 2);
+    afficher_compteur(450, 130);
 
     /* Boucle infinie de jeu */
     while (1)
@@ -78,10 +119,50 @@ void deplacement(int l, int c, int joueur[8][8], int l_tuile, int h_tuile)
                 mouvement_effectue = 1;
             }
             
-            /* Incrémenter le compteur si un mouvement a été effectué */
+            /* Incrémenter le compteur et réafficher si un mouvement a été effectué */
             if (mouvement_effectue)
             {
                 incrementer_compteur();
+                
+                /* Réafficher seulement après un mouvement */
+                ChoisirEcran(0);
+                ChargerImageFond("../img/fondbleu.png");
+
+                /* Réaffichage du modèle en haut a gauche */
+                for (m = 0; m < l; m++)
+                {
+                    for (n = 0; n < c; n++)
+                    {
+                        ref = m * c + n;
+                        CopierZone(3, 0,(ref % c) * l_tuile,(ref / c) * h_tuile,l_tuile, h_tuile,
+                                   20 + n * (l_tuile + 2),
+                                   20 + m * (h_tuile + 2));
+                    }
+                }
+
+                /* Réaffichage du puzzle joué */
+                for (m = 0; m < l; m++)
+                {
+                    for (n = 0; n < c; n++)
+                    {
+                        numTile = joueur[m][n];
+                        x = centre_x + n * (l_tuile + 2);
+                        y = centre_y + m * (h_tuile + 2);
+
+                        if (numTile == -1)
+                        {
+                            /* tuile blanche */
+                            CopierZone(3, 0, 500, 0, l_tuile, h_tuile, x, y);
+                        }
+                        else
+                        {
+                            CopierZone(3, 0,(numTile % c) * l_tuile,(numTile / c) * h_tuile,
+                            l_tuile, h_tuile,x, y);
+                        }
+                    }
+                }
+                EcrireTexte(450, 100, "A toi de jouer !", 2);
+                afficher_compteur(450, 130);
             }
         }
 
@@ -109,11 +190,51 @@ void deplacement(int l, int c, int joueur[8][8], int l_tuile, int h_tuile)
                     joueur[i][j] = -1;
                     /* Incrémenter le compteur pour un mouvement à la souris */
                     incrementer_compteur();
+                    
+                    /* Réafficher après un mouvement à la souris */
+                    ChoisirEcran(0);
+                    ChargerImageFond("../img/fondbleu.png");
+
+                    /* Réaffichage du modèle en haut a gauche */
+                    for (m = 0; m < l; m++)
+                    {
+                        for (n = 0; n < c; n++)
+                        {
+                            ref = m * c + n;
+                            CopierZone(3, 0,(ref % c) * l_tuile,(ref / c) * h_tuile,l_tuile, h_tuile,
+                                       20 + n * (l_tuile + 2),
+                                       20 + m * (h_tuile + 2));
+                        }
+                    }
+
+                    /* Réaffichage du puzzle joué */
+                    for (m = 0; m < l; m++)
+                    {
+                        for (n = 0; n < c; n++)
+                        {
+                            numTile = joueur[m][n];
+                            x = centre_x + n * (l_tuile + 2);
+                            y = centre_y + m * (h_tuile + 2);
+
+                            if (numTile == -1)
+                            {
+                                /* tuile blanche */
+                                CopierZone(3, 0, 500, 0, l_tuile, h_tuile, x, y);
+                            }
+                            else
+                            {
+                                CopierZone(3, 0,(numTile % c) * l_tuile,(numTile / c) * h_tuile,
+                                l_tuile, h_tuile,x, y);
+                            }
+                        }
+                    }
+                    EcrireTexte(450, 100, "A toi de jouer !", 2);
+                    afficher_compteur(450, 130);
                 }
             }
         }
 
-        /*Vérifier si le puzzle est résolu AVANT le réaffichage*/
+        /*Vérifier si le puzzle est résolu */
         int resolu = puzzle_resolu(l, c, joueur);
         if (resolu)
         {
@@ -122,49 +243,8 @@ void deplacement(int l, int c, int joueur[8][8], int l_tuile, int h_tuile)
             ecran_fin();
             return;   /*quitter la fonction de déplacement*/
         }
-
-        /*Réaffichage complet */
-        ChoisirEcran(0);
-        ChargerImageFond("../img/fondbleu.png");
-
-        /* Réaffichage du modèle en haut a gauche sinon ça fait quand tu clique
-        ou t'appuies sur les flèche ta plus le modèle du puzzle */
-        for (m = 0; m < l; m++)
-        {
-            for (n = 0; n < c; n++)
-            {
-                ref = m * c + n;
-                CopierZone(3, 0,(ref % c) * l_tuile,(ref / c) * h_tuile,l_tuile, h_tuile,
-                           20 + n * (l_tuile + 2),
-                           20 + m * (h_tuile + 2));
-            }
-        }
-
-        /* Réaffichage du puzzle joué */
-        for (m = 0; m < l; m++)
-        {
-            for (n = 0; n < c; n++)
-            {
-                numTile = joueur[m][n];
-                x = centre_x + n * (l_tuile + 2);
-                y = centre_y + m * (h_tuile + 2);
-
-                if (numTile == -1)
-                {
-                    /* tuile blanche */
-                    CopierZone(3, 0, 500, 0, l_tuile, h_tuile, x, y);
-                }
-                else
-                {
-                    CopierZone(3, 0,(numTile % c) * l_tuile,(numTile / c) * h_tuile,
-                    l_tuile, h_tuile,x, y);
-                }
-            }
-            
-        }
-        EcrireTexte(450, 100, "A toi de jouer !", 2);
         
-        /* Afficher le compteur de coups */
-        afficher_compteur(450, 130);
+        /* Petite pause pour éviter de surcharger le CPU (10 millisecondes) */
+        usleep(10000);
     }
 }
