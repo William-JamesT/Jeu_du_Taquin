@@ -9,7 +9,7 @@ CFLAGS = -Wall -Wextra -g -ansi -pedantic
 LDFLAGS = -lgraph
 
 # Fichiers sources et objets
-SRC = main.c Bouton.c Choix_image.c bouton_Choix_image.c Choix_decoupimg1.c Choix_decoupimg2.c Choix_decoupimg3.c decoupage.c melange.c deplacement.c ecranGagner.c puzzleResolu.c
+SRC = main.c Bouton.c Choix_image.c bouton_Choix_image.c Choix_decoupimg1.c Choix_decoupimg2.c Choix_decoupimg3.c decoupage.c melange.c deplacement.c ecranGagner.c puzzleResolu.c compteur.c
 OBJ = $(SRC:.c=.o)
 
 # Règle par défaut

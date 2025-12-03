@@ -4,6 +4,7 @@
 #include "deplacement.h"
 #include "ecranGagner.h"
 #include "puzzleResolu.h"
+#include "compteur.h"
 
 
 /* Déplacement du puzzle après mélange */
@@ -19,6 +20,10 @@ void deplacement(int l, int c, int joueur[8][8], int l_tuile, int h_tuile)
     int numTile;
     int trouve;
     int ref;
+    int mouvement_effectue;
+
+    /* Initialiser le compteur de coups */
+    init_compteur();
 
     /* Centrage du puzzle */
     centre_x = 600 - (c * (l_tuile + 2)) / 2;
@@ -43,6 +48,7 @@ void deplacement(int l, int c, int joueur[8][8], int l_tuile, int h_tuile)
         }
 
         /* Déplacements au clavier */
+        mouvement_effectue = 0;
         if (ToucheEnAttente())
         {
             touche = Touche();
@@ -51,21 +57,31 @@ void deplacement(int l, int c, int joueur[8][8], int l_tuile, int h_tuile)
             {
                 joueur[bl_i][bl_j] = joueur[bl_i + 1][bl_j];
                 joueur[bl_i + 1][bl_j] = -1;
+                mouvement_effectue = 1;
             }
             else if (touche == XK_Down && bl_i > 0)
             {
                 joueur[bl_i][bl_j] = joueur[bl_i - 1][bl_j];
                 joueur[bl_i - 1][bl_j] = -1;
+                mouvement_effectue = 1;
             }
             else if (touche == XK_Left && bl_j < c - 1)
             {
                 joueur[bl_i][bl_j] = joueur[bl_i][bl_j + 1];
                 joueur[bl_i][bl_j + 1] = -1;
+                mouvement_effectue = 1;
             }
             else if (touche == XK_Right && bl_j > 0)
             {
                 joueur[bl_i][bl_j] = joueur[bl_i][bl_j - 1];
                 joueur[bl_i][bl_j - 1] = -1;
+                mouvement_effectue = 1;
+            }
+            
+            /* Incrémenter le compteur si un mouvement a été effectué */
+            if (mouvement_effectue)
+            {
+                incrementer_compteur();
             }
         }
 
@@ -91,12 +107,18 @@ void deplacement(int l, int c, int joueur[8][8], int l_tuile, int h_tuile)
                 {
                     joueur[bl_i][bl_j] = joueur[i][j];
                     joueur[i][j] = -1;
+                    /* Incrémenter le compteur pour un mouvement à la souris */
+                    incrementer_compteur();
                 }
             }
         }
-        /* --- Vérifier si le puzzle est résolu --- */
-        if (puzzle_resolu(l, c, joueur))
+
+        /*Vérifier si le puzzle est résolu AVANT le réaffichage*/
+        int resolu = puzzle_resolu(l, c, joueur);
+        if (resolu)
         {
+            printf("DEBUG: Puzzle résolu détecté, affichage de l'écran de fin\n");
+            /* Afficher l'écran de fin */
             ecran_fin();
             return;   /*quitter la fonction de déplacement*/
         }
@@ -138,7 +160,11 @@ void deplacement(int l, int c, int joueur[8][8], int l_tuile, int h_tuile)
                     l_tuile, h_tuile,x, y);
                 }
             }
+            
         }
         EcrireTexte(450, 100, "A toi de jouer !", 2);
+        
+        /* Afficher le compteur de coups */
+        afficher_compteur(450, 130);
     }
 }
