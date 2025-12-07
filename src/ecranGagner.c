@@ -26,7 +26,7 @@ void ecran_fin()
 
     /* Message de félicitations */
     ChoisirCouleurDessin(CouleurParNom("white"));
-    EcrireTexte(300, 150, "Bravo, tu as résolu le puzzle !", 2);
+    EcrireTexte(300, 150, "Bravo, tu as resolu le puzzle !", 2);
 
     /* --- Bouton Rejouer --- */
     ChoisirCouleurDessin(CouleurParNom("green"));

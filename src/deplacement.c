@@ -22,7 +22,7 @@ void deplacement(int l, int c, int joueur[8][8], int l_tuile, int h_tuile)
     int trouve;
     int ref;
     int mouvement_effectue;
-
+    int resolu;
     /* Initialiser le compteur de coups */
     init_compteur();
 
@@ -235,10 +235,9 @@ void deplacement(int l, int c, int joueur[8][8], int l_tuile, int h_tuile)
         }
 
         /*Vérifier si le puzzle est résolu */
-        int resolu = puzzle_resolu(l, c, joueur);
+        resolu = puzzle_resolu(l, c, joueur);
         if (resolu)
         {
-            printf("DEBUG: Puzzle résolu détecté, affichage de l'écran de fin\n");
             /* Afficher l'écran de fin */
             ecran_fin();
             return;   /*quitter la fonction de déplacement*/
