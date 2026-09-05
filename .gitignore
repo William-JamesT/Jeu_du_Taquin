@@ -1,0 +1,6 @@
+# Exécutable et objets compilés
+src/taquin
+src/*.o
+
+# Fichiers temporaires d'éditeur
+*~

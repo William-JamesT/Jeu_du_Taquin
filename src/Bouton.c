@@ -25,7 +25,7 @@ void Bouton1P_or_Q()
             /*si clic = coordonnées boutons quitte*/
             else if(_xclic >= x_rectangle2 && _xclic<=x_rectangle2 + largeur_r2 
                 && _yclic >= y_rectangle2 && _yclic<= y_rectangle2 + Hauteur_r2){
-                    FermerGraphique();
+                    exit(EXIT_SUCCESS);
                     return;
             }
         while (SourisCliquee());

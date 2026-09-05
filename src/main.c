@@ -7,8 +7,7 @@
 #include"bouton_Choix_image.h"
 int main()
 {
-	int x,y;
-    char *f;
+
     couleur c;
     InitialiserGraphique();
     CreerFenetre(50,50,1000,550);
@@ -25,6 +24,10 @@ int main()
     Choix_images();
     /*si il quitte pas et choisis une des images on appelle la fonction*/
     bouton_choix_image();
-    while(Touche()!= XK_space);
+    while(Touche()!= XK_space){
+
+    }
+
+    FermerGraphique();
 	return EXIT_SUCCESS;
 }

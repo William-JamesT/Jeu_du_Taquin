@@ -48,7 +48,7 @@ void bouton_choix_image()
                     /*CopierZone(0,0,1000,550,0,0,500,500);j'ai pas encore compris comment l'utiliser*/
                     /*ChoisirEcran(1);*/
                     printf("Bouton Quitté");
-                    FermerGraphique();
+                    exit(EXIT_SUCCESS);
                     return;
             }
         while (SourisCliquee());

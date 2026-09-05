@@ -1,3 +1,4 @@
+#define _DEFAULT_SOURCE
 #include <graph.h>
 #include <stdio.h>
 #include <stdlib.h>

@@ -63,7 +63,6 @@ void ecran_fin()
             if (x >= btn_quitter_x && x <= btn_quitter_x + btn_quitter_w &&
                 y >= btn_quitter_y && y <= btn_quitter_y + btn_quitter_h)
             {
-                FermerGraphique();
                 exit(0);
             }
         }

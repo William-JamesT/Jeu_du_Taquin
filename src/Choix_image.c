@@ -3,8 +3,6 @@
 #include<stdio.h> 
 void Choix_images()
 {
-	int x,y;
-    char *f;
     couleur c;
     ChoisirEcran(1);
     /*pas besoin de refaire une fenetre*/
